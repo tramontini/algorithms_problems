@@ -1,2 +1,2 @@
-# hacker_rank
+# HackerRank Algorithms
 Repository to save algorithms from HackerRank
