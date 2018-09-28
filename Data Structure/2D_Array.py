@@ -11,32 +11,35 @@ def hourglassSum(arr):
     
     value = None
     
-    # Starting i in the first middle value
-    # first_col < i < last_col
-    i = 2
+    # Starting col in the first middle value
+    # first_col < col < last_col
+    col = 1
     
-    # Starting j in the first middle value
-    # first_row < j < last_row
-    j = 2
+    # Starting row in the first middle value
+    # first_row < row < last_row
+    row = 1
     
     last_col_n = len(arr[0])
     last_row_n = len(arr)
     
-    # i-1,j-1  i,j-1    i+1,j-1
-    #          i,j
-    # i-1,j+1  i,j+1    i+1,j+1
-    
-    while i < last_col_n:
-        if value == None:
-            value = arr[i-1, j-1] + arr[i, j-1] + arr[i+1, j-1] + arr[i,j] + arr[i-1, j+1] + arr[i, j+1] + arr[i+1, j+1]    
-        else:
-            new_sum = arr[i-1, j-1] + arr[i, j-1] + arr[i+1, j-1] + arr[i,j] + arr[i-1, j+1] + arr[i, j+1] + arr[i+1, j+1]
-            if new_sum > value:
-                value = new_sum
-        
-        if j < last_row_n:
-            j += 1
+    # row-1,col-1  row-1,col    row-1,col+1
+    #               row, col
+    # row+1,col-1  row+1,col    row+1,col+1
+    while row < (last_row_n - 1):
+        while col < (last_col_n - 1):
+            if value == None:
+                value = arr[row-1][col-1] + arr[row-1][col] + arr[row-1][col+1] + arr[row][col] + arr[row+1][col-1] + arr[row+1][col] + arr[row+1][col+1]    
+            else:
+                new_sum = arr[row-1][col-1] + arr[row-1][col] + arr[row-1][col+1] + arr[row][col] + arr[row+1][col-1] + arr[row+1][col] + arr[row+1][col+1]
             
+                if new_sum > value:
+                    value = new_sum
+            col += 1
+
+        row += 1
+        # Reset j to second col
+        col = 1
+
     return value
     
 
