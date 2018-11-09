@@ -11,19 +11,15 @@ def countingValleys(n, s):
 
     sea_level = 0
     valleys = 0
-    step_num = 0
-    s = list(s[0])
 
     for step in s:
         if step == 'U':
             sea_level += 1
+            
+            if sea_level == 0:
+                valleys += 1                
         else:
             sea_level -= 1
-
-        if sea_level == -1 and s[step_num+1] == 'U':
-            valleys += 1
-
-        step_num += 1
 
     return valleys
 
