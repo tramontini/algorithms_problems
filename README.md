@@ -1,2 +1,2 @@
-# HackerRank Algorithms
-Repository to save algorithms from HackerRank
+# Algorithms Problems 
+Repository to save solutions from sites like HackerRank, Daily Coding Problems and etc..
